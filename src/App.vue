@@ -1,22 +1,24 @@
 <template>
-  <homeComp></homeComp>
+  <header-comp></header-comp>
   <router-view></router-view>
   
 </template>
 
 <script>
-  import homeComp from "./components/Home/homeComp.vue";
-
+  import headerComp from '@/components/header/headerComp'
 
  export default {
   components: {
-    homeComp
+    headerComp
   }
 
  }
 
 </script>
 
+
+
 <style>
+  @import './assets/style.css'
 
 </style>
