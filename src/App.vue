@@ -1,16 +1,20 @@
 <template>
-  <header-comp></header-comp>
+  <homeComp></homeComp>
+  <CarouselComp></CarouselComp>
   <router-view></router-view>
   
 </template>
 
 <script>
-  import headerComp from '@/components/header/headerComp'
+import homeComp from "./components/Home/homeComp.vue";
+import CarouselComp from "./components/utils/carouselComp.vue";
+
 
  export default {
   components: {
-    headerComp
-  }
+    homeComp,
+    CarouselComp
+}
 
  }
 
