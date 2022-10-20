@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import homeComp from "./components/Home/homeComp.vue";
+import homeComp from "./components/Home/homeComp.vue";
 import CarouselComp from "./components/utils/carouselComp.vue";
 
 
@@ -20,6 +20,9 @@ import CarouselComp from "./components/utils/carouselComp.vue";
 
 </script>
 
+
+
 <style>
+  @import './assets/style.css'
 
 </style>
