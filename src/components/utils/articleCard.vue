@@ -1,24 +1,21 @@
 <template>
-    <a-col class="article_card" :span="span">
-        <router-link :to="{name:'article', params:{id:article.id} }">
-            <a-card hoverable style="width: 100%">
+    <a-col :span="span" class="article_card">
+        <router-link :to="{name:'article',params:{id:article.id}}">
+            <a-card hoverable style="width:100%">
                 <template #cover>
-                    <img alt="imgArtcle" src='https://loremflickr.com/220/240/dog?id={{$article.id}}'>
+                    <img alt="image_article" :src="`http://placebeard.it/1080/720?${article.id}`"> 
                 </template>
-                <h3>many variations of passages of Lo</h3>
-                <p>There are many variations of passages of Lorem Ipsum available,
-                    but the majority have suffered alteration in some form, by injected humour.
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
-
             </a-card>
         </router-link>
     </a-col>
 </template>
 
 <script>
-   export default {
-    props:["span", "index", "article"]
-
-   }
-   
+export default {
+    props:['span','article','index']
+}
 </script>
