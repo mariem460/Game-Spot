@@ -1,20 +1,20 @@
 <template>
-  <headerCompVue></headerCompVue>
-  <homeComp></homeComp>
+  <headerComp></headerComp>
+  <HomeComp></HomeComp>
   <router-view></router-view>
   
 </template>
 
 <script>
-import homeComp from "./components/Home/homeComp.vue";
-import headerCompVue from "./components/header/headerComp.vue";
+
+import HomeComp from "./components/Home/homeComp.vue";
+import headerComp from "./components/header/headerComp.vue";
 
 
  export default {
   components: {
-    homeComp,
-    headerCompVue,
-
+    headerComp,
+    HomeComp
 }
 
  }
