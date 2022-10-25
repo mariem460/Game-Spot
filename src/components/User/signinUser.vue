@@ -1,49 +1,104 @@
 <template>
     <div class="signin_container p_top">
-        <Form @submit="onSubmit"  :validation-schema="formSchema">
-            <h1>hello</h1>
+
+        <Form @submit="onSubmit" :validation-schema="formSchema">
+
+            <h1 v-text="!type ? 'Sign in':'Sign up'"></h1>
+
+            <div class="form-group">
+                <Field name="email" v-slot="{field, errors, errorMessage }">
+                    <input
+                        type="text"
+                        id="email"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        v-bind="field"
+                        :class="{'is-invalid': errors.length !== 0}"
+                    />
+                    <div
+                        class="input_alert"
+                        v-if="errors.length !== 0"
+                    >
+                        {{ errorMessage }}
+                    </div>
+                </Field>
+            </div>
+
+
+             <div class="form-group">
+                <Field name="password" v-slot="{field, errors, errorMessage }">
+                    <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="Enter your password"
+                        v-bind="field"
+                        :class="{'is-invalid': errors.length !== 0}"
+                    />
+                    <div
+                        class="input_alert"
+                        v-if="errors.length !== 0"
+                    >
+                        {{ errorMessage }}
+                    </div>
+                </Field>
+            </div>
+
+            <button
+                type="submit"
+                class="btn mb-3 btn-block"
+                v-text="!type ? 'Sign in':'Sign up'"
+            >
+            </button>
+
+            <hr/>
+            <div class="form_swap" @click="type = !type">
+                <span v-if="type">
+                    I want to <b>Sign in</b>
+                </span>
+                <span v-else>
+                    I want to <b>Sign up</b>
+                </span>
+            </div>
+
 
         </Form>
 
-    </div>
 
+    </div>
 </template>
+
 <script>
-    import {Field, Form, ErrorMessage} from 'vee-validate'
-    import * as yup from 'yup'
-   export default {
+import { Field,Form  } from 'vee-validate'
+import * as yup from 'yup';
+export default {
     components:{
-        // eslint-disable-next-line vue/no-unused-components
         Field,
-        Form,
-        // eslint-disable-next-line vue/no-unused-components
-        ErrorMessage
+        Form
     },
     data(){
-        return{
+        return {
             type:false,
             formSchema:{
                 email: yup.string()
-                .required('the email is required !')
-                .email('not a valid email'),
-                password: yup.string().required('the password is required')
-
+                    .required('The email is required')
+                    .email('Not a valid email'),
+                password:yup.string()
+                    .required('The password is required')
             }
-            
         }
     },
-    methods: {
-        onSubmit(values, {resetForm}){
+    methods:{
+        onSubmit(values,{ resetForm }){
             if(!this.type){
-                //signin
-                console.log(values, "signin")
-            }else{
-                console.log(values, "signUp")
-                //signup
+                // sign in
+                console.log(values,'SIGN IN')
+            } else {
+                //sign up
+                console.log(values,'SIGN UP')
             }
-            resetForm()
-
+            resetForm();
         }
-    },
-   }
+    }
+}
 </script>
